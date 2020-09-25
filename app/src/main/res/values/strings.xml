@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">GeoFun</string>
+    <string name="appTitle">GeoFun</string>
+    <string name="description">Die Rätsel App</string>
+    <string name="mode_1">Infinite Mode</string>
+    <string name="mode_2">Time Rush</string>
+    <string name="mode_3">Interactive Mode</string>
+    <string name="settings">Einstellungen</string>
+    <string name="infiniteLabel">Infinite Mode</string>
+    <string name="placeholderQ">Frage</string>
+    <string name="placeholderA">Antwort</string>
+    <string name="currentScore">Aktueller Score</string>
+    <string name="highScore">Highscore</string>
+    <string name="placeHolderCS">2</string>
+    <string name="placeholderHS">10</string>
+    <string name="timeRushLabel">Time Rush</string>
+    <string name="time">Zeit verbleibend</string>
+    <string name="placeHolderTime">20</string>
+    <string name="locationDetection">Standorterkennung</string>
+    <string name="notifications">Benachrichtigungen</string>
+    <string name="back">Zurück</string>
+</resources>
