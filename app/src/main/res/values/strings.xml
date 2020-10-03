@@ -19,4 +19,7 @@
     <string name="locationDetection">Standorterkennung</string>
     <string name="notifications">Benachrichtigungen</string>
     <string name="back">Zurück</string>
+    <string name="widgetDescription">Frage des Tages:</string>
+    <string name="placeholderWidget">Hauptstadt Belgien</string>
+    <string name="buttonDescription">Zur App</string>
 </resources>

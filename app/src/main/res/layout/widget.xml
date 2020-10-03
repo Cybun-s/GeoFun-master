@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/widget_description"
+        android:layout_width="127dp"
+        android:layout_height="86dp"
+        android:layout_weight="1"
+        android:padding="25dp"
+        android:text="@string/widgetDescription" />
+
+    <TextView
+        android:id="@+id/dailyQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="86dp"
+        android:layout_weight="1"
+        android:padding="25dp"
+        android:text="@string/placeholderWidget" />
+
+    <Button
+        android:id="@+id/goToAppButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="30dp"
+        android:text="@string/buttonDescription" />
+</LinearLayout>
