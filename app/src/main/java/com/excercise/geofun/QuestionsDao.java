@@ -3,5 +3,5 @@ package com.excercise.geofun;
 import androidx.room.Dao;
 
 @Dao
-public class QuestionsDao {
+public interface QuestionsDao {
 }
