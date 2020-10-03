@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         interactiveMode.setOnClickListener(this);
         editSettings.setOnClickListener(this);
 
+        fillDatabase();
+
     }
 
 
@@ -70,6 +72,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intentSettings = new Intent(MainActivity.this, ActivitySettings.class);
         startActivity(intentSettings);
     }
+
+    public void fillDatabase(){
+    }
+
 
 }
 
