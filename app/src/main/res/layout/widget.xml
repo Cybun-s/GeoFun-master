@@ -4,26 +4,26 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/widget_description"
-        android:layout_width="127dp"
-        android:layout_height="86dp"
-        android:layout_weight="1"
-        android:padding="25dp"
-        android:text="@string/widgetDescription" />
-
-    <TextView
         android:id="@+id/dailyQuestion"
         android:layout_width="wrap_content"
         android:layout_height="86dp"
         android:layout_weight="1"
         android:padding="25dp"
-        android:text="@string/placeholderWidget" />
+        android:text="@string/widgetDescription"
+        android:layout_gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        android:background="@color/colorAccent"
+        />
 
     <Button
         android:id="@+id/goToAppButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_weight="1"
         android:padding="30dp"
-        android:text="@string/buttonDescription" />
+        android:text="@string/buttonDescription"
+        android:textColor="@color/colorPrimary" />
 </LinearLayout>
