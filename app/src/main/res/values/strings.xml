@@ -21,4 +21,8 @@
     <string name="back">Zurück</string>
     <string name="widgetDescription">GeoFun: Lust zu spielen?</string>
     <string name="buttonDescription">Go!</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="interactiveDescription">Benutze die Karte um Fragen zu beantworten</string>
+    <string name="interactiveQuestionPlaceholder">Hauptstadt Deutschland</string>
+
 </resources>

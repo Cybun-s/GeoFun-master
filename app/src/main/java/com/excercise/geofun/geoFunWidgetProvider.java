@@ -11,14 +11,14 @@ public class geoFunWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        for (int count : appWidgetIds){
+        for (int i : appWidgetIds){
             Intent intent = new Intent (context, MainActivity.class);
             PendingIntent pI = PendingIntent.getActivity(context, 0, intent, 0);
             RemoteViews v = new RemoteViews(context.getPackageName(), R.layout.widget);
 
             v.setOnClickPendingIntent(R.id.goToAppButton, pI);
 
-            appWidgetManager.updateAppWidget(count, v);
+            appWidgetManager.updateAppWidget(i, v);
         }
     }
 }
