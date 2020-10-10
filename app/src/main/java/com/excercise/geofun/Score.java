@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "Scores")
 public class Score {
 
     @PrimaryKey
@@ -14,7 +14,6 @@ public class Score {
     public int value;
 
     public Score(int value){
-        this.id = id;
         this.value = value;
     }
 

@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "Questions")
 public class Question {
 
     @PrimaryKey
@@ -13,7 +13,8 @@ public class Question {
     @ColumnInfo(name = "question")
     public String question;
 
-    public Question(String question){
+    public Question(int id, String question){
+        this.id = id;
         this.question = question;
     }
 

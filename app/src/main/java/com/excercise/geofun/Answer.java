@@ -5,7 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "Answers")
 public class Answer {
 
     @PrimaryKey
@@ -17,7 +17,7 @@ public class Answer {
     @ColumnInfo(name = "answerValue")
     public String answerValue;
 
-    public Answer(String answerType, String answerValue){
+    public Answer(int id, String answerType, String answerValue){
         this.id = id;
         this.answerType = answerType;
         this.answerValue = answerValue;
