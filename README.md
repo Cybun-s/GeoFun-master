@@ -4,7 +4,7 @@ Allgemeine Bemerkungen:
 
 Es empfiehlt sich, vor der Dokumentation das beiliegende Video anzusehen um ein ausführliches Verständnis über das Programm
 zu erhalten. Es geht sehr ausführlich auf die App, die einzelnen Bausteine sowie den Entwicklungsprozess ein und betrachtet sowohl Front- als auch Backend.
-Das Video ist unter den Datein in diesem Projekt zu finden.
+Das Video lässt sich unter folgendem Link downloaden: https://we.tl/t-A7IFNqYSrK (Hinweis: Video Link läuft in einer Woche -Stand 12.10.2020 23:50- ab, ist jedoch auf Anfrage erneut verfügbar)
 Die schriftliche Dokumentation beschränkt sich deshalb auf einige ausführlichere Erklärungen bestimmter Code Bausteine, gibt jedoch keinen zweiten vollständigen Überblick über die App.
 
 Projektteilnehmer sind: Julian Kammermeier & Alwina Bitter. Folgende Teile des Projekts wurden an folgende Teilnehmer verteilt und jeweils bis zum im Release vorzufindenden Stand  bearbeitet:
