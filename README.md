@@ -11,7 +11,7 @@ Projektteilnehmer sind: Julian Kammermeier & Alwina Bitter. Folgende Teile des P
 
 Julian Kammermeier: Erstellung Projekt und Github Repository; Erstellung Java Klassen; Erstellung und Design alle Layouts; Widget komplett; Datenbank komplett inklusive Helper Klassen, DAOs, Anpassung Manifest, etc; Verarbeitung der Datenbank Inhalte in den Spielmodi (Anzeigen in TextView, Auslesen aus DB, Erneuerung, etc.); Ablauf Spielmodi Infinite Mode und Interactive Mode (Scoring, Antwortüberprüfung, Fragegenerierung, etc.); Erstellung Karten Fragment + Klasse für Kartenverarbeitung; Apptutorial Video;
 
-Alwina Bitter: Erstellung alle Intents zum Wechsel zwischen Klassen komplett; Bugfixing Layouts; Shared Preferences komplett; Standortzugriff (Erlaubnis erteilen, Abfrage Erlaubnis, Integration in Interactive Mode/Karten Fragment); Benachrichtigungsmanagement (Erlaubnis erteilen, Abfrage Erlaubnis, Benachrichtigungen erstellen);
+Alwina Bitter: Erstellung aller Intents zum Wechsel zwischen Klassen komplett; Bugfixing Layouts; Shared Preferences komplett; Standortzugriff (Erlaubnis erteilen, Abfrage Erlaubnis, Integration in Interactive Mode/Karten Fragment); Benachrichtigungsmanagement (Erlaubnis erteilen, Abfrage Erlaubnis, Benachrichtigungen erstellen);
 
 Jeder der Teilnehmer war für die Dokumentation seiner Inhalte selbst verantwortlich.
 
@@ -56,12 +56,17 @@ Die Activity an sich enhält erneut ein Objekt der Klasse DatabaseHelper, ein Ob
 Zu Activity Start wird die Karte geladen und ein Land mit Hilfe der Datenbank festgelegt. Der Nutzer kann nun auf der Karte einen Marker setzten, wo er die Lage der Hauptstadt dieses Landes vermutet. Abhängig vom eigenen Standort des Nutzers wird dann die Beantwortung der Frage angestoßen (nicht realisiert, aktuell wird lediglich ein Marker per default auf Regensburg gesetzt).
 Per zurück Button kann außerdem der Intent zum Wechseln auf die MainActivity angestoßen werden.
 
-Alwina Bitter:
+ActivitySettings:
+Die Activvity ActivitySettings beinhaltet die Standortabfrage und -speicherung mithilfe von Shared Preferences. Hierzu wurden öffentliche, statische finale Strings SHARED_PREFERENCES, LOCATION_SWITCH und NOTIFICATION_SWITCH angelegt, um diese als Key mit der Methode putBoolean des SharedPreferences Konstruktors einem vordefinierten Wert, hier: die Zustände der jeweiligen Switches, zuweisen zu können. Es wurden zudem ein privater statischer finaler int Wert angelegt, der in der Standordpermissionabfrage (Methode getLocationPermission()) als Wert benutzt wird, welcher in einem Stringarray gespeichert wird. 
+Zudem wurden die Variablen der Switches locationSwitch und notificationSwitch und des Boolean switchOnOff erstell, damit auf diese im Laufe des Codes zugegriffen werden kann.
+In der Methode onCreate wird das Layout activity_settings aufgerufen, welches drei Elemente enthält: Einen Zurück-Button, einen Switch für den Standortzugriff (locationSwitch) und einen Switch für die Benachrichtigungen. Auf diese drei Elemente wurde ein onClickListener gesetzt, auf welche in der nächsten Methode onClick (View v) der Einfachheit halber mittels eines Switchcase in Abhängigkeit der Buttin/Switch-Ids zugegriffen wird. Jedes case beinhaltet eine Methode, die einen eigenen Intent erhält, welches im Falle des geklickten Zurück-Buttons auf die Hauptseite zurückleitet, im Falle der Auswahl des Locationsswitches die Methode changeLocationSetting() aufruft und im Falle der Auswahl des Switches notificationSwitch die Methode changeNotificationSetting() aufruft.   
+Die methode changeLocationSetting vergleicht, ob die Permission im Manifest bereits erteilt wurde. Falls dies der Fall ist, wird ein Toast mit dem Text "Standortzugriff wurde bereits erteilt" angezeigt. Falls der Standortzugriff nicht erteilt wurde, wird diese in der nächsten Methode, getLocationPermission(), eingeholt.  
+getLocationPermission() zeigt das von Android vordefinierte, gewohnte Fenster zur Standortabfrage an mit den Optionen OK und Abbrechen. Der Standort wird hierbei nur einmal abgefragt, erst bei Deinstallation und Reinstallation der App wird der Standort erneut abgefragt, sonst bleibt der Standort aktiviert, die Berechtigung erlischt durch Schließen der App nicht. Wenn die Option OK gewählt wird, wird die Auswahl gespeichert und anschließend geladen und angezeigt. Die Speicherung der Zustände der Switches geschieht durch SharedPreferences.  
 
-Activity Settings
 
 Bekannte Bugs:
 Widget: "Problem Loading Widget" Anzeige statt Widget Layout;
 Widget: Button reagiert nicht auf Klick;
 TimeRush/Infinite Modus: Frage/Land und Antwort Felder bleiben leer;
 In allen drei Fällen hilft (mehrmaliges) de- & reinstallieren der App auf dem Emulator/Gerät
+ActivitySettings: SharedPreferences speichert Buttons, lässt jedoch nicht zu, dass die Buttons ausgeschaltet werden, nachdem beide aktiviert sind. 
