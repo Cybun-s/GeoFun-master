@@ -73,6 +73,6 @@ public class ActivityInteractive extends FragmentActivity implements OnMapReadyC
 
         LatLng rgbg = new LatLng(49, 12);
         map.addMarker(new MarkerOptions().position(rgbg).title("Default Markierung Regensburg"));
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(rgbg, 5.0f));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(rgbg, 3.0f));
     }
 }
