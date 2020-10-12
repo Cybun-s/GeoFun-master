@@ -96,6 +96,7 @@ public class ActivitySettings extends AppCompatActivity implements View.OnClickL
         }
 
         loadState();
+        updateSwitches();
 
     }
 
