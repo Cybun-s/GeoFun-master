@@ -48,7 +48,7 @@ Nach Klick auf eine Antwort werden diese inklusive Frage und Land zurückgesetzt
 Per Klick auf den Zurückpfeil kann außerdem zurück zum Menü der MainActivity gelangt werden.
 
 ActivityTimeRush:
-Diese Activity referenziert das Layout "activity_timerush" und ist in ihrem Aufbau dem des Infinite Mode sehr ähnlich. Einziger Unterschied ist ein Timer, welcher entsprechend der Einstellung (testSeconds für Funktionalitätstest und realModeSeconds für tatsächlichen Spielbetrieb) einen Countdown startet. Während ansonsten der Spielmodus dem des InfiniteMode gleicht, wird zusätzlich bei Erreichen des Timers von 0 der Score gespeichert und auf 0 zurückgesetzt bevor der Timer erneut startet (nicht realisiert, aktuell wird man bei einem Timer von 0 automatisch zur MainActivity gebracht).
+Diese Activity referenziert das Layout "activity_timerush" und ist in ihrem Aufbau dem des Infinite Mode sehr ähnlich. Einziger Unterschied ist ein Timer, welcher entsprechend der Einstellung (testSeconds für Funktionalitätstest und realModeSeconds für tatsächlichen Spielbetrieb) einen Countdown startet. Während ansonsten der Spielmodus dem des InfiniteMode gleicht, wird zusätzlich bei Erreichen des Timers von 0 der Score gespeichert und auf 0 zurückgesetzt bevor der Timer erneut startet.
 
 ActivityInteractive:
 Diese Activty referenziert das Layout "activity_interactive", welches zusätlich zu einem Zurück Button, welcher einen zur MainActivity bringt eine Karte in Form eines Fragments beinhaltet. Außerdem enthält das Layout TextViews für die Fragestellung.
