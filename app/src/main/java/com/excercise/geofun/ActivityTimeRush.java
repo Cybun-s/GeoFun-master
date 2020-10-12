@@ -31,6 +31,8 @@ public class ActivityTimeRush extends AppCompatActivity implements View.OnClickL
 
     String answerClicked;
     int currentScore = 0;
+    int testSeconds = 10000;
+    int realModeSeconds = 60000;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +49,12 @@ public class ActivityTimeRush extends AppCompatActivity implements View.OnClickL
         setUpButtonsAndViews();
         updateScoreView();
         updateQuestionAnswerPairs();
-        returnToPreviousPage();
+        returnToMainMenu();
         setUpTimer();
     }
 
     public void setUpTimer(){
-        new CountDownTimer(10000, 1000) {
+        new CountDownTimer(testSeconds, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 timeRemaining.setText("" + millisUntilFinished / 1000);
@@ -60,15 +62,20 @@ public class ActivityTimeRush extends AppCompatActivity implements View.OnClickL
 
             public void onFinish() {
                 resetAndSaveScore();
-                Intent intentBack = new Intent(ActivityTimeRush.this, MainActivity.class);
-                startActivity(intentBack);
+                initUI();
             }
         }.start();
     }
 
-    private void returnToPreviousPage(){
-        FloatingActionButton infiniteBackButton = findViewById(R.id.timeRushBackButton);
-        infiniteBackButton.setOnClickListener(this);
+    public void returnToMainMenu() {
+        FloatingActionButton interactiveBackButton = findViewById(R.id.timeRushBackButton);
+        interactiveBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityTimeRush.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void setUpButtonsAndViews(){
@@ -92,11 +99,6 @@ public class ActivityTimeRush extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.infiniteBackButton:
-                resetAndSaveScore();
-                Intent intentBack = new Intent(ActivityTimeRush.this, MainActivity.class);
-                startActivity(intentBack);
-                break;
             case R.id.answer1:
                 answerClicked = answer1Button.getText().toString();
                 onAnswerClick();
@@ -380,7 +382,8 @@ public class ActivityTimeRush extends AppCompatActivity implements View.OnClickL
     }
 
     public void resetAndSaveScore(){
-        Score s = new Score(currentScore);
+        String sT = "TimeRush";
+        Score s = new Score(currentScore, sT);
         dbh.storeScore(s);
         currentScore = 0;
         currentScoreDisplay.setText(String.valueOf(currentScore));

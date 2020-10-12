@@ -367,7 +367,8 @@ public class ActivityInfinite extends AppCompatActivity implements View.OnClickL
     }
 
     public void resetAndSaveScore(){
-        Score s = new Score(currentScore);
+        String sT = "Infinite";
+        Score s = new Score(currentScore, sT);
         dbh.storeScore(s);
         currentScore = 0;
         currentScoreDisplay.setText(String.valueOf(currentScore));

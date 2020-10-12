@@ -23,6 +23,6 @@
     <string name="buttonDescription">Go!</string>
     <string name="title_activity_maps">Map</string>
     <string name="interactiveDescription">Benutze die Karte um Fragen zu beantworten</string>
-    <string name="interactiveQuestionPlaceholder">Hauptstadt Deutschland</string>
+    <string name="questionDescription">Wo weit bist du entfernt von der Hauptstadt von:</string>
 
 </resources>
