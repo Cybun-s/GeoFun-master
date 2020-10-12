@@ -52,7 +52,7 @@ Diese Activity referenziert das Layout "activity_timerush" und ist in ihrem Aufb
 
 ActivityInteractive:
 Diese Activty referenziert das Layout "activity_interactive", welches zusätlich zu einem Zurück Button, welcher einen zur MainActivity bringt eine Karte in Form eines Fragments beinhaltet. Außerdem enthält das Layout TextViews für die Fragestellung.
-Die Activity an sich enhält erneut ein Objekt der Klasse DatabaseHelper, ein Objekt der Klasse Random und einen textView zum Setzten des Landes.
+Die Activity an sich enhält erneut ein Objekt der Klasse DatabaseHelper, ein Objekt der Klasse Random und einen textView zum Setzten des Landes. Außerdem ein Objekt map vom Typ GoogleMap, welches für das Handling der Karte zuständig ist, welche im Layout als Fragment dem Nutzer dargestellt wird.
 Zu Activity Start wird die Karte geladen und ein Land mit Hilfe der Datenbank festgelegt. Der Nutzer kann nun auf der Karte einen Marker setzten, wo er die Lage der Hauptstadt dieses Landes vermutet. Abhängig vom eigenen Standort des Nutzers wird dann die Beantwortung der Frage angestoßen (nicht realisiert, aktuell wird lediglich ein Marker per default auf Regensburg gesetzt).
 Per zurück Button kann außerdem der Intent zum Wechseln auf die MainActivity angestoßen werden.
 
