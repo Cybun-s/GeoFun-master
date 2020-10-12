@@ -55,3 +55,10 @@ Diese Activty referenziert das Layout "activity_interactive", welches zusätlich
 Die Activity an sich enhält erneut ein Objekt der Klasse DatabaseHelper, ein Objekt der Klasse Random und einen textView zum Setzten des Landes.
 Zu Activity Start wird die Karte geladen und ein Land mit Hilfe der Datenbank festgelegt. Der Nutzer kann nun auf der Karte einen Marker setzten, wo er die Lage der Hauptstadt dieses Landes vermutet. Abhängig vom eigenen Standort des Nutzers wird dann die Beantwortung der Frage angestoßen (nicht realisiert, aktuell wird lediglich ein Marker per default auf Regensburg gesetzt).
 Per zurück Button kann außerdem der Intent zum Wechseln auf die MainActivity angestoßen werden.
+
+
+Bekannte Bugs:
+Widget: "Problem Loading Widget" Anzeige statt Widget Layout;
+Widget: Button reagiert nicht auf Klick;
+TimeRush/Infinite Modus: Frage/Land und Antwort Felder bleiben leer;
+In allen drei Fällen hilft (mehrmaliges) de- & reinstallieren der App auf dem Emulator/Gerät
