@@ -13,8 +13,12 @@ public class Score {
     @ColumnInfo(name="scoreValue")
     public int value;
 
-    public Score(int value){
+    @ColumnInfo(name="scoreType")
+    public String scoreType;
+
+    public Score(int value, String scoreType){
         this.value = value;
+        this.scoreType = scoreType;
     }
 
     public int getID(){
