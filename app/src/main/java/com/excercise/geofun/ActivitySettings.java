@@ -3,10 +3,12 @@ package com.excercise.geofun;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -16,18 +18,26 @@ import androidx.core.content.ContextCompat;
 
 public class ActivitySettings extends AppCompatActivity implements View.OnClickListener {
 
+    public static final String SHARED_PREFERENCES = "sharedPreferences";
+    public static final String LOCATION_SWITCH = "switchLocation";
+    public static final String NOTIFICATION_SWITCH = "switchNotifications";
+
     private static final int LOCATION_ALLOWED_CODE = 1;
+    private Button settingsReturn;
+    private Switch locationSwitch;
+    private Switch notificationSwitch;
+    private boolean switchOnOff;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        Button settingsBackButton = findViewById(R.id.settings_back);
-        Button locationSetting = findViewById(R.id.locationSwitch);
-        Button notificationSetting = findViewById(R.id.notificationSwitch);
+        settingsReturn = findViewById(R.id.settings_back);
+        locationSwitch = findViewById(R.id.locationSwitch);
+        notificationSwitch = findViewById(R.id.notificationSwitch);
 
-        settingsBackButton.setOnClickListener(this);
-        locationSetting.setOnClickListener(this);
-        notificationSetting.setOnClickListener(this);
+        settingsReturn.setOnClickListener(this);
+        locationSwitch.setOnClickListener(this);
+        notificationSwitch.setOnClickListener(this);
     }
 
     @Override
@@ -82,13 +92,37 @@ public class ActivitySettings extends AppCompatActivity implements View.OnClickL
         } else {
             ActivityCompat.requestPermissions(this,
                     new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_ALLOWED_CODE);
+            saveState();
         }
 
-    }
+        loadState();
 
+    }
 
     public void changeNotificationSetting(){
     }
+
+    private void saveState() {
+        SharedPreferences sharedPreferences = getSharedPreferences(LOCATION_SWITCH, MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putBoolean(LOCATION_SWITCH, locationSwitch.isChecked());
+        edit.putBoolean(NOTIFICATION_SWITCH, notificationSwitch.isChecked());
+        edit.apply();
+        Toast.makeText(this, "Standort und Benachrichtigungen aktiviert", Toast.LENGTH_SHORT).show();
+    }
+
+    private void loadState() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE);
+        switchOnOff = sharedPreferences.getBoolean(LOCATION_SWITCH, false);
+    }
+
+    private void updateSwitches(){
+        locationSwitch.setChecked(switchOnOff);
+        notificationSwitch.setChecked(switchOnOff);
+
+    }
+
+
 
 }
 
